@@ -1,7 +1,7 @@
 # Phrase Hunter
 Building a browser-based word guessing game
 
-## Check it out
+## Let's Play!
 https://dainyleen.github.io/phraseHunter
 
 ### Tech Talk
