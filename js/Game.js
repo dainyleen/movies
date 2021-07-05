@@ -100,14 +100,13 @@ class Game {
     if (key) {
       endMessage.textContent = 'Awesome!'
       startScreen.className = 'win'
-      startButton.textContent = 'Play again'
+      startGameButton.textContent = 'Play again'
       this.resetGame()
     } else {
       endMessage.textContent = 'Try again!'
       startScreen.className = 'lose'
-      startButton.textContent = 'Play again'
+      startGameButton.textContent = 'Play again'
       this.resetGame()
     }
   }
-
 }
