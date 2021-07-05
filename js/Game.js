@@ -92,4 +92,22 @@ class Game {
     return (showLetterCount + spaceCount) === keyList.length
   }
 
+  gameOver(gameWon) {
+    const startScreen = document.getElementById('overlay')
+    const endMessage = document.getElementById('game-over-message')
+    startScreen.style.display = ''
+
+    if (key) {
+      endMessage.textContent = 'Awesome!'
+      startScreen.className = 'win'
+      startButton.textContent = 'Play again'
+      this.resetGame()
+    } else {
+      endMessage.textContent = 'Try again!'
+      startScreen.className = 'lose'
+      startButton.textContent = 'Play again'
+      this.resetGame()
+    }
+  }
+
 }
