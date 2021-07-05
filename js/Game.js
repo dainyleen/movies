@@ -44,6 +44,25 @@ class Game {
     this.activePhrase.addPhraseToDisplay()
   }
 
-   
+  /**
+  * Handles onscreen keyboard button clicks
+  * @param (HTMLButtonElement) button - The clicked button element
+  **/
+
+  handleInteraction(button) {
+    button.disabled = true
+    const key = button.textContent
+    if (this.activePhrase.checkLetter(key)) {
+      button.classList.add('chosen')
+      this.activePhrase.showMatchedLetter(key)
+      const winner = this.checkForWin()
+      if (winner) {
+        this.gameOver('win')
+      }
+    } else {
+      button.classList.add('wrong')
+      this.removeLife()
+    }
+  }
 
 }
