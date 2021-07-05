@@ -1,4 +1,4 @@
-// Create initial constructor method
+// Create Game class
 class Game {
   constructor(missed, phrases, activePhrase) {
     this.missed = 0
@@ -10,8 +10,7 @@ class Game {
   * Creates phrases for use in game
   * @return {array} An array of phrases that could be used in the game
   */
-
-   
+ 
   createPhrases() {
     const phrases = [
       new Phrase('Life is like a box of chocolates'),
@@ -22,5 +21,14 @@ class Game {
     ]
 
     return phrases
+  }
+
+  /**
+  * Selects random phrase from phrases property
+  * @return {Object} Phrase object chosen to be used
+  */
+
+  getRandomPhrase() {
+    return this.phrases[Math.floor(Math.random() * this.phrases.length)]
   }
 }
