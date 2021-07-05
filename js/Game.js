@@ -43,4 +43,7 @@ class Game {
     this.activePhrase = this.getRandomPhrase()
     this.activePhrase.addPhraseToDisplay()
   }
+
+   
+
 }
