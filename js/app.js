@@ -29,11 +29,21 @@
 // game.startGame();
 // console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
 
+
 let game;
 const startGameButton = document.getElementById('btn__reset')
+const keys = document.querySelector('#qwerty')
 
 startGameButton.addEventListener('click', () => {
   game = new Game()
   game.startGame()
 })
+
+keys.addEventListener('click', (e) => {
+  e.target && e.target.nodeName == 'BUTTON' ? game.handleInteraction(e.target) : null
+})
+
+
+
+
 
