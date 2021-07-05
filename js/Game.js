@@ -43,4 +43,70 @@ class Game {
     this.activePhrase = this.getRandomPhrase()
     this.activePhrase.addPhraseToDisplay()
   }
+
+  /**
+  * Handles onscreen keyboard button clicks
+  * @param (HTMLButtonElement) button - The clicked button element
+  **/
+
+  handleInteraction(button) {
+    button.disabled = true
+    const key = button.textContent
+    if (this.activePhrase.checkLetter(key)) {
+      button.classList.add('chosen')
+      this.activePhrase.showMatchedLetter(key)
+      const winner = this.checkForWin()
+      if (winner) {
+        this.gameOver('win')
+      }
+    } else {
+      button.classList.add('wrong')
+      this.removeLife()
+    }
+  }
+
+  removeLife() {
+    this.missed += 1
+    const scoreboard = document.querySelector('#scoreboard ol').children
+    const heartImage = scoreboard[this.missed - 1].querySelector('img')
+
+    heartImage.src = 'img/lostHeart.png'
+
+    if (this.missed === 5) {
+      this.gameOver('lose')
+    }
+  }
+
+  checkForWin() {
+    const keysList = document.querySelector('#phrase ul').children
+    let showLetterCount = 0
+    let spaceCount = 0
+
+    for (let i = 0; i < keysList.length; i++) {
+      if (keyList[i].classlist.contains('show')) {
+        showLetterCount +=1
+      } else if (keyList[i].classList.contains('space')) {
+        spaceCount +=1
+      }
+    }
+    return (showLetterCount + spaceCount) === keyList.length
+  }
+
+  gameOver(gameWon) {
+    const startScreen = document.getElementById('overlay')
+    const endMessage = document.getElementById('game-over-message')
+    startScreen.style.display = ''
+
+    if (key) {
+      endMessage.textContent = 'Awesome!'
+      startScreen.className = 'win'
+      startGameButton.textContent = 'Play again'
+      this.resetGame()
+    } else {
+      endMessage.textContent = 'Try again!'
+      startScreen.className = 'lose'
+      startGameButton.textContent = 'Play again'
+      this.resetGame()
+    }
+  }
 }
