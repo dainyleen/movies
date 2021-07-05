@@ -77,4 +77,19 @@ class Game {
     }
   }
 
+  checkForWin() {
+    const keysList = document.querySelector('#phrase ul').children
+    let showLetterCount = 0
+    let spaceCount = 0
+
+    for (let i = 0; i < keysList.length; i++) {
+      if (keyList[i].classlist.contains('show')) {
+        showLetterCount +=1
+      } else if (keyList[i].classList.contains('space')) {
+        spaceCount +=1
+      }
+    }
+    return (showLetterCount + spaceCount) === keyList.length
+  }
+
 }
