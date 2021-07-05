@@ -9,10 +9,6 @@ class Phrase {
   */
 
   addPhraseToDisplay() {
-    const wordPhrases = this.phrase.split(' ')
-    const ul = document.createElement('ul')
-    const div = document.getElementById('phrase')
-
-    
+   
   }
 }
