@@ -9,5 +9,4 @@ const phrase = [
 ]
 const activePhrase = null
 
-// console.log(`Phrase - phrase: ${phrase.phrase}`)
 
