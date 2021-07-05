@@ -65,4 +65,16 @@ class Game {
     }
   }
 
+  removeLife() {
+    this.missed += 1
+    const scoreboard = document.querySelector('#scoreboard ol').children
+    const heartImage = scoreboard[this.missed - 1].querySelector('img')
+
+    heartImage.src = 'img/lostHeart.png'
+
+    if (this.missed === 5) {
+      this.gameOver('lose')
+    }
+  }
+
 }
