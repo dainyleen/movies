@@ -82,5 +82,6 @@ class Game {
 
   // Gameover
   gameOver(gameStatus) {
+    document.removeEventListener('keyup', eventHandler)
   }
 }
