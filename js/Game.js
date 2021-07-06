@@ -66,12 +66,12 @@ class Game {
 
   // Check if the player is winning
   checkForWin() {
-    const keysList = document.querySelector('#phrase ul').children
+    const keyList = document.querySelector('#phrase ul').children
     let showLetterCount = 0
     let spaceCount = 0
 
-    for (let i = 0; i < keysList.length; i++) {
-      if (keyList[i].classlist.contains('show')) {
+    for (let i = 0; i < keyList.length; i++) {
+      if (keyList[i].classList.contains('show')) {
         showLetterCount +=1
       } else if (keyList[i].classList.contains('space')) {
         spaceCount +=1
