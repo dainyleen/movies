@@ -1,6 +1,3 @@
-// Global Variables
-const phraseUl = document.querySelector('#phrase ul')
-
 // Create initial constructor method
 class Phrase {
   constructor(phrase) {
@@ -12,16 +9,18 @@ class Phrase {
   */
 
   addPhraseToDisplay() {
-    let phraseToDisplay = ''
-    // Use forEach
-    this.phrase.split('').forEach(letter => {
+    const phraseContainer = document.getElementById('phrase')
+    const splitWords = this.phrase.split('')
+    // Use forEach to loop through each letter of the phrase
+    splitWords.forEach(letter => {
       if (letter === ' ') {
-        phraseToDisplay += `<li class="space"></li>`
+        let spaceListItem = '<li class="space"> </li>'
+        phraseContainer.querySelector('ul').insertAdjacentHTML('beforeend', spaceListItem)
       } else {
-        phraseToDisplay += `<li class="hide letter ${letter}">${letter}</li>`
+        let letterListItem = `<li class="hide letter ${letter}">${letter}</li>`
+        phraseContainer.querySelector('ul').insertAdjacentHTML('beforeend', letterListItem)
       }
     })
-    return phraseUl.innerHTML = phraseToDisplay
   }
 
   /**
@@ -30,7 +29,8 @@ class Phrase {
   */
 
   checkLetter(letter) {
-    return this.phrase.split('').includes(letter)
+    const splitWords = this.phrase.split('')
+    return splitWords.includes(letter)
   }
 
   /**
@@ -39,11 +39,9 @@ class Phrase {
   */
 
   showMatchedLetter(letter) {
-    const letters = document.querySelectorAll('.letter')
-
-    letters.forEach((li) => {
-      if (li.textContent === letter)
-        li.setAttribute('class', 'show')
-    })
+    const letters = document.getElementsByClassName(letter)
+    for (let i = 0; i < letters.length; i++) {
+      letters[i].classList.replace('hide', 'show')
+    }
   }
 }

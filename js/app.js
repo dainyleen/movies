@@ -30,20 +30,45 @@
 // console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
 
 
-let game;
+const missed = 0
+
+const phrases = [
+  new Phrase('Life is like a box of chocolates'),
+  new Phrase('I am your father'),
+  new Phrase('Houston, we have a problem'),
+  new Phrase('You had me at hello'),
+  new Phrase('Hasta la vista, baby')
+]
+
+const activePhrase = null
+
+let eventHandler = function(event) {
+    let keyPressed = event.key
+    for (let i = 0; i < keys.length; i++) {
+      if (keys[i].innerHTML === keyPressed) {
+        if (keys[i].disabled) {
+          continue
+      } else {
+        game.handleInteraction(keys[i])
+      }
+    }
+  }
+}
+
+const keys = document.getElementsByClassName('key')
 const startGameButton = document.getElementById('btn__reset')
-const keys = document.querySelector('#qwerty')
 
 startGameButton.addEventListener('click', () => {
-  game = new Game()
+  game = new Game(missed, phrases, activePhrase)
   game.startGame()
+
+  document.addEventListener('keyup', eventHandler)
 })
 
-keys.addEventListener('click', (e) => {
-  e.target && e.target.nodeName == 'BUTTON' ? game.handleInteraction(e.target) : null
-})
-
-
-
-
-
+for (let i = 0; i < keys.length; i++) {
+  // Event listener listens for when one of the keys on the screen will be clicked
+  keys[i].addEventListener('click', (event) => {
+    // Invoke the game interaction for the key that was clicked
+    game.handleInteraction(event.target);
+  })
+}

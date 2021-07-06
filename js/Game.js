@@ -1,26 +1,9 @@
 // Create Game class
 class Game {
   constructor(missed, phrases, activePhrase) {
-    this.missed = 0
-    this.phrases = this.createPhrases()
-    this.activePhrase = null
-  }
-
-  /**
-  * Creates phrases for use in game
-  * @return {array} An array of phrases that could be used in the game
-  */
- 
-  createPhrases() {
-    const phrases = [
-      new Phrase('Life is like a box of chocolates'),
-      new Phrase('I am your father'),
-      new Phrase('Houston, we have a problem'),
-      new Phrase('You had me at hello'),
-      new Phrase('Hasta la vista, baby')
-    ]
-
-    return phrases
+    this.missed = missed
+    this.phrases = phrases
+    this.activePhrase = activePhrase
   }
 
   /**
@@ -29,7 +12,8 @@ class Game {
   */
 
   getRandomPhrase() {
-    return this.phrases[Math.floor(Math.random() * this.phrases.length)]
+    const index = Math.floor(Math.random() * this.phrases.length)
+    return this.phrases[index]
   }
 
   /**
@@ -55,7 +39,9 @@ class Game {
     if (this.activePhrase.checkLetter(key)) {
       button.classList.add('chosen')
       this.activePhrase.showMatchedLetter(key)
+
       const winner = this.checkForWin()
+
       if (winner) {
         this.gameOver('win')
       }
@@ -65,6 +51,7 @@ class Game {
     }
   }
 
+  // Remove Heart life
   removeLife() {
     this.missed += 1
     const scoreboard = document.querySelector('#scoreboard ol').children
@@ -77,13 +64,14 @@ class Game {
     }
   }
 
+  // Check if the player is winning
   checkForWin() {
-    const keysList = document.querySelector('#phrase ul').children
+    const keyList = document.querySelector('#phrase ul').children
     let showLetterCount = 0
     let spaceCount = 0
 
-    for (let i = 0; i < keysList.length; i++) {
-      if (keyList[i].classlist.contains('show')) {
+    for (let i = 0; i < keyList.length; i++) {
+      if (keyList[i].classList.contains('show')) {
         showLetterCount +=1
       } else if (keyList[i].classList.contains('space')) {
         spaceCount +=1
@@ -92,21 +80,46 @@ class Game {
     return (showLetterCount + spaceCount) === keyList.length
   }
 
-  gameOver(gameWon) {
-    const startScreen = document.getElementById('overlay')
-    const endMessage = document.getElementById('game-over-message')
-    startScreen.style.display = ''
+  // Gameover
+  gameOver(gameStatus) {
+    document.removeEventListener('keyup', eventHandler)
 
-    if (key) {
-      endMessage.textContent = 'Awesome!'
-      startScreen.className = 'win'
-      startGameButton.textContent = 'Play again'
-      this.resetGame()
-    } else {
-      endMessage.textContent = 'Try again!'
-      startScreen.className = 'lose'
-      startGameButton.textContent = 'Play again'
-      this.resetGame()
+    const gameOverlay = document.getElementById('overlay')
+    gameOverlay.style.display = 'block'
+
+    const gameOverMessage = document.getElementById('game-over-message')
+
+    if (gameStatus === 'lose') {
+      gameOverMessage.textContent = 'Sorry... Game Over.'
+    } else if (gameStatus === 'win') {
+      gameOverMessage.textContent = 'Awesome! You won.'
+    }
+
+    const overlay = document.getElementById('overlay')
+    const currentOverlayClass = overlay.className
+    overlay.classList.replace(currentOverlayClass, gameStatus)
+
+    this.resetGame()
+  }
+
+  resetGame() {
+    const keyList = document.querySelector('#phrase ul')
+    keyList.innerHTML = ''
+
+    const keys = document.getElementsByClassName('key')
+    // For Loop
+    for (let i = 0; i < keys.length; i++) {
+      keys[i].className = 'key'
+      keys[i].disabled = false
+    }
+
+    const buttonReset = document.getElementById('btn__reset')
+    buttonReset.textContent = 'Play Again'
+    const scoreboard = document.querySelector('#scoreboard ol').children
+    // For loop
+    for (let i = 0; i < scoreboard.length; i++) {
+      const heartImage = scoreboard[i].querySelector('img')
+      heartImage.src = 'img/liveHeart.png'
     }
   }
 }
