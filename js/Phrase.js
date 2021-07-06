@@ -11,15 +11,14 @@ class Phrase {
   addPhraseToDisplay() {
     const phraseDiv = document.getElementById('phrase')
     const split = this.phrase.split('')
-    // Use forEach
-    this.phrase.split('').forEach(letter => {
+    // Use forEach to loop through each letter of the phrase
+    split.forEach(letter => {
       if (letter === ' ') {
-        phraseToDisplay += `<li class="space"></li>`
+        let withSpace = '<li class="space"></li>'
       } else {
-        phraseToDisplay += `<li class="hide letter ${letter}">${letter}</li>`
+
       }
     })
-    return phraseUl.innerHTML = phraseToDisplay
   }
 
   /**
