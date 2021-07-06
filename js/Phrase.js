@@ -9,16 +9,16 @@ class Phrase {
   */
 
   addPhraseToDisplay() {
-    const phraseDiv = document.getElementById('phrase')
-    const split = this.phrase.split('')
+    const phraseContainer = document.getElementById('phrase')
+    const splitWords = this.phrase.split('')
     // Use forEach to loop through each letter of the phrase
-    split.forEach(letter => {
+    splitWords.forEach(letter => {
       if (letter === ' ') {
-        let withSpace = '<li class="space"></li>'
-        phraseDiv.querySelector('ul').insertAdjacentElement('beforeend', withSpace)
+        let spaceListItem = '<li class="space"> </li>'
+        phraseContainer.querySelector('ul').insertAdjacentHTML('beforeend', spaceListItem)
       } else {
         let letterListItem = `<li class="hide letter ${letter}">${letter}</li>`
-        phraseDiv.querySelector('ul').insertAdjacentElement('beforeend', letterListItem)
+        phraseContainer.querySelector('ul').insertAdjacentHTML('beforeend', letterListItem)
       }
     })
   }
@@ -29,8 +29,8 @@ class Phrase {
   */
 
   checkLetter(letter) {
-    const split = this.phrase.split('')
-    return split.includes(letter)
+    const splitWords = this.phrase.split('')
+    return splitWords.includes(letter)
   }
 
   /**
