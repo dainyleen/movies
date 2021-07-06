@@ -81,21 +81,6 @@ class Game {
   }
 
   // Gameover
-  gameOver(gameWon) {
-    const startScreen = document.getElementById('overlay')
-    const endMessage = document.getElementById('game-over-message')
-    startScreen.style.display = ''
-
-    if (key) {
-      endMessage.textContent = 'Awesome!'
-      startScreen.className = 'win'
-      startGameButton.textContent = 'Play again'
-      this.resetGame()
-    } else {
-      endMessage.textContent = 'Try again!'
-      startScreen.className = 'lose'
-      startGameButton.textContent = 'Play again'
-      this.resetGame()
-    }
+  gameOver(gameStatus) {
   }
 }
