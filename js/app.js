@@ -42,7 +42,15 @@ const phrases = [
 
 const activePhrase = null
 
-
-
-
-
+let eventHandler = function(event) {
+    let keyPressed = event.key
+    for (let i = 0; i < keys.length; i++) {
+      if (keys[i].innerHTML === keyPressed) {
+        if (keys[i].disabled) {
+          continue
+      } else {
+        game.handleInteraction(keys[i])
+      }
+    }
+  }
+}
