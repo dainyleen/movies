@@ -30,18 +30,17 @@
 // console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
 
 
-let game;
-const startGameButton = document.getElementById('btn__reset')
-const keys = document.querySelector('#qwerty')
+const missed = 0
 
-startGameButton.addEventListener('click', () => {
-  game = new Game()
-  game.startGame()
-})
+const phrases = [
+  new Phrase('Life is like a box of chocolates'),
+  new Phrase('I am your father'),
+  new Phrase('Houston, we have a problem'),
+  new Phrase('You had me at hello'),
+  new Phrase('Hasta la vista, baby')
+]
 
-keys.addEventListener('click', (e) => {
-  e.target && e.target.nodeName == 'BUTTON' ? game.handleInteraction(e.target) : null
-})
+const activePhrase = null
 
 
 
