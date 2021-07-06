@@ -39,11 +39,9 @@ class Phrase {
   */
 
   showMatchedLetter(letter) {
-    const letters = document.querySelectorAll('.letter')
-
-    letters.forEach((li) => {
-      if (li.textContent === letter)
-        li.setAttribute('class', 'show')
-    })
+    const letters = document.getElementsByClassName(letter)
+    for (let i = 0; i < letters.length; i++) {
+      letters[i].classList.replace('hide', 'show')
+    }
   }
 }
