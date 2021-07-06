@@ -83,5 +83,18 @@ class Game {
   // Gameover
   gameOver(gameStatus) {
     document.removeEventListener('keyup', eventHandler)
+
+    const gameOverlay = document.getElementById('overlay')
+    gameOverlay.style.display = 'block'
+
+    const gameOverMessage = document.getElementById('game-over-message')
+
+    if (gameStatus === 'lose') {
+      gameOverMessage.textContent = 'Sorry... Game Over.'
+    } else if (gameStatus === 'win') {
+      gameOverMessage.textContent = 'Awesome! You won.'
+    }
+
+    
   }
 }
