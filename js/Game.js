@@ -7,19 +7,13 @@ class Game {
   }
 
   /**
-  * Creates phrases for use in game
-  * @return {array} An array of phrases that could be used in the game
-  */
- 
-  
-
-  /**
   * Selects random phrase from phrases property
   * @return {Object} Phrase object chosen to be used
   */
 
   getRandomPhrase() {
-    return this.phrases[Math.floor(Math.random() * this.phrases.length)]
+    const index = Math.floor(Math.random() * this.phrases.length)
+    return this.phrases[index]
   }
 
   /**
@@ -45,7 +39,9 @@ class Game {
     if (this.activePhrase.checkLetter(key)) {
       button.classList.add('chosen')
       this.activePhrase.showMatchedLetter(key)
+
       const winner = this.checkForWin()
+
       if (winner) {
         this.gameOver('win')
       }
@@ -55,6 +51,7 @@ class Game {
     }
   }
 
+  // Remove Heart life
   removeLife() {
     this.missed += 1
     const scoreboard = document.querySelector('#scoreboard ol').children
@@ -67,6 +64,7 @@ class Game {
     }
   }
 
+  // Check if the player is winning
   checkForWin() {
     const keysList = document.querySelector('#phrase ul').children
     let showLetterCount = 0
@@ -82,6 +80,7 @@ class Game {
     return (showLetterCount + spaceCount) === keyList.length
   }
 
+  // Gameover
   gameOver(gameWon) {
     const startScreen = document.getElementById('overlay')
     const endMessage = document.getElementById('game-over-message')
