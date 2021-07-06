@@ -54,3 +54,13 @@ let eventHandler = function(event) {
     }
   }
 }
+
+const keys = document.getElementsByClassName('key')
+const startGameButton = document.getElementById('btn__reset')
+
+startGameButton.addEventListener('click', () => {
+  game = new Game(missed, phrases, activePhrase)
+  game.startGame()
+
+  document.addEventListener('keyup', eventHandler)
+})
