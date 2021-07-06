@@ -1,7 +1,7 @@
 // Create Game class
 class Game {
   constructor(missed, phrases, activePhrase) {
-    this.missed = 0
+    this.missed = missed
     this.phrases = this.createPhrases()
     this.activePhrase = null
   }
