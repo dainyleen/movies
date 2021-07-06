@@ -95,6 +95,14 @@ class Game {
       gameOverMessage.textContent = 'Awesome! You won.'
     }
 
+    const overlay = document.getElementById('overlay')
+    const currentOverlayClass = overlay.className
+    overlay.classList.replace(currentOverlayClass, gameStatus)
+
+    this.resetGame()
+  }
+
+  resetGame() {
     
   }
 }
