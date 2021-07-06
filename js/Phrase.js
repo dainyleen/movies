@@ -15,8 +15,10 @@ class Phrase {
     split.forEach(letter => {
       if (letter === ' ') {
         let withSpace = '<li class="space"></li>'
+        phraseDiv.querySelector('ul').insertAdjacentElement('beforeend', withSpace)
       } else {
-
+        let letterListItem = `<li class="hide letter ${letter}">${letter}</li>`
+        phraseDiv.querySelector('ul').insertAdjacentElement('beforeend', letterListItem)
       }
     })
   }
@@ -27,7 +29,8 @@ class Phrase {
   */
 
   checkLetter(letter) {
-    return this.phrase.split('').includes(letter)
+    const split = this.phrase.split('')
+    return split.includes(letter)
   }
 
   /**
