@@ -1,6 +1,3 @@
-// Global Variables
-const phraseUl = document.querySelector('#phrase ul')
-
 // Create initial constructor method
 class Phrase {
   constructor(phrase) {
@@ -12,7 +9,8 @@ class Phrase {
   */
 
   addPhraseToDisplay() {
-    let phraseToDisplay = ''
+    const phraseDiv = document.getElementById('phrase')
+    const split = this.phrase.split('')
     // Use forEach
     this.phrase.split('').forEach(letter => {
       if (letter === ' ') {
