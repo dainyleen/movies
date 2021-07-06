@@ -64,3 +64,11 @@ startGameButton.addEventListener('click', () => {
 
   document.addEventListener('keyup', eventHandler)
 })
+
+for (let i = 0; i < keys.length; i++) {
+  // Event listener listens for when one of the keys on the screen will be clicked
+  keys[i].addEventListener('click', (event) => {
+    // Invoke the game interaction for the key that was clicked
+    game.handleInteraction(event.target);
+  })
+}
