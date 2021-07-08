@@ -27,6 +27,10 @@ https://dainyleen.github.io/phraseHunter
   
   ** checkForWin(): checks to see if the player wins the game
   
+  ** gameover(): displays the start screen depending on the outcome of the game
+  
+  
+  
   
   
   
