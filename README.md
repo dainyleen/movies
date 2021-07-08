@@ -15,3 +15,7 @@ https://dainyleen.github.io/phraseHunter
 
 ** showMatchedLetter(): reveals the letter(s) on the board that matches the player's selection
 
+4. Inside the Phrase class: I created methods that have specific tasks to perform:
+
+
+
