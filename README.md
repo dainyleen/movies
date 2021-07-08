@@ -18,6 +18,16 @@ https://dainyleen.github.io/phraseHunter
 4. Inside the Phrase class: I created methods that have specific tasks to perform:
 
   ** startGame(): hides the start screen 
+  
+  ** getRandomPhrase(): this method retrieves one of the phrases stored in array and returns it
+  
+  ** handleInteractions(): this method controls most of the game logic
+  
+  ** removeLife(): removed a life heart from the scoreboard
+  
+  
+  
+  
 
 
 
