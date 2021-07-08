@@ -23,7 +23,10 @@ https://dainyleen.github.io/phraseHunter
   
   ** handleInteractions(): this method controls most of the game logic
   
-  ** removeLife(): removed a life heart from the scoreboard
+  ** removeLife(): removes a life heart from the scoreboard
+  
+  ** checkForWin(): checks to see if the player wins the game
+  
   
   
   
