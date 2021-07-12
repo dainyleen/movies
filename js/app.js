@@ -35,9 +35,9 @@ const missed = 0
 const phrases = [
   new Phrase('Life is like a box of chocolates'),
   new Phrase('I am your father'),
-  new Phrase('Houston, we have a problem'),
+  new Phrase('Houston we have a problem'),
   new Phrase('You had me at hello'),
-  new Phrase('Hasta la vista, baby')
+  new Phrase('Hasta la vista baby')
 ]
 
 const activePhrase = null
