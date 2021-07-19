@@ -2,7 +2,7 @@
 Building a browser-based word guessing game
 
 ## Let's Play!
-https://dainyleen.github.io/phraseHunter
+https://dainyleen.github.io/movies
 
 ### Tech Talk
 1. I created 3 different js files: Phrase.js - Game.js - app.js
