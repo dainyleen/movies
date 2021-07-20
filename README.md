@@ -1,7 +1,7 @@
-# Phrase Hunter
+# Let's Play!
 Building a browser-based word guessing game
 
-## Let's Play!
+## GitHub Page
 https://dainyleen.github.io/movies
 
 ### Tech Talk
