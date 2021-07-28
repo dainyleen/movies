@@ -9,28 +9,29 @@ https://dainyleen.github.io/movies
 2. I created two classes: Phrase class and Game class
 3. Inside the Phrase class: I created methods that have specific tasks to perform:
 
-  ** addPhraseToDisplay(): this adds letter placeholders to the display when the game starts
+  ##### addPhraseToDisplay(): this adds letter placeholders to the display when the game starts
 
-  ** checkLetter(): checks to see if the letter selected by the player matches a letter in the phrase
+  ##### checkLetter(): checks to see if the letter selected by the player matches a letter in the phrase
 
-  ** showMatchedLetter(): reveals the letter(s) on the board that matches the player's selection
+  ##### showMatchedLetter(): reveals the letter(s) on the board that matches the player's selection
 
 4. Inside the Phrase class: I created methods that have specific tasks to perform:
 
-  ** startGame(): hides the start screen 
+  ##### startGame(): hides the start screen 
   
-  ** getRandomPhrase(): this method retrieves one of the phrases stored in array and returns it
+  ##### getRandomPhrase(): this method retrieves one of the phrases stored in array and returns it
   
-  ** handleInteractions(): this method controls most of the game logic
+  ##### handleInteractions(): this method controls most of the game logic
   
-  ** removeLife(): removes a life heart from the scoreboard
+  ##### removeLife(): removes a life heart from the scoreboard
   
-  ** checkForWin(): checks to see if the player wins the game
+  ##### checkForWin(): checks to see if the player wins the game
   
-  ** gameover(): displays the start screen depending on the outcome of the game
+  ##### gameover(): displays the start screen depending on the outcome of the game
   
 
-*This project is from TeamTreehouse - Tech Degree curriculum
+
+###### The project concept is from TeamTreehouse - Tech Degree curriculum
   
   
   
